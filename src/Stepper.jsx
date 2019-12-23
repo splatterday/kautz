@@ -1,44 +1,17 @@
 import React from 'react';
+// import NavPt from './NavPt';
 
-class NavPt extends React.Component {
-    handleClick = () => {
-        const { path, onClick } = this.props;
-        onClick(path);
-        this.setState({currentPage: this.props.currentPage}) 
-    }
-    render() {
-        // if(this.state.active) {
-        //     {active}
-        // }
-        return(
-            <div className="navpt">
-                <a href={this.props.path} onClick={this.handleClick}>X</a>
-            </div>
-        );
-    }
-}
-
-class Stepper extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            currentPage: "home",
-        }
-    }
-
-    changePage() {
-        this.setState({currentPage: this.props.currentPage})
-    }
-
-    render() {
-        return(
-            <div className="stepper">
-                <NavPt currentPage="page1" onClick={this.changePage}/>
-                <NavPt currentPage="page2" onClick={this.changePage}/>
-                <NavPt currentPage="home" onClick={this.changePage}/>
-            </div>
-        )
-    }
-}
+const Stepper = ({eHandler, pages}) => {
+    return (
+      /* Then here we can just map out the keys of the PAGES array to individual NavPt components like so:
+      {Object.keys(pages).map(n => <NavPtr key={n} currentPage={n} onClick={changePage} />)}
+      */
+      <div className="stepper">
+        <button onClick={eHandler} value="1" />
+        <button onClick={eHandler} value="2"/>
+        <button onClick={eHandler} value="0"/>
+      </div>
+    );
+  };
 
 export default Stepper;

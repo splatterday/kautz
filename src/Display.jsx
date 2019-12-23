@@ -1,70 +1,63 @@
-import React from 'react';
-import Home from './pages/Home';
-import Page1 from './pages/Page1';
-import Page2 from './pages/Page2';
+import React from "react";
+import Home from "./pages/Home";
+import Page1 from "./pages/Page1";
+import Page2 from "./pages/Page2";
 
-class NavPt extends React.Component {
-    handleClick = () => {
-        const { path, onClick } = this.props;
-        onClick(path);
-        this.setState({currentPage: this.props.currentPage}) 
-    }
-    render() {
-        // if(this.state.active) {
-        //     {active}
-        // }
-        return(
-            <div className="navpt">
-                <a href={this.props.path} onClick={this.handleClick}>X</a>
-            </div>
-        );
-    }
+/* For example:
+import Page1 from './Pages/Page1'
+import Page2 from './Pages/Page2'
+const PAGES = { 
+    1: Page1
+    2: Page2
 }
 
-class Stepper extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            currentPage: "home",
-        }
+render() {
+    if !(this.props.selectedPage) {
+        return null
     }
 
-    changePage(props) {
-        this.setState({currentPage: this.props.currentPage})
-    }
-
-    render() {
-        return(
-            <div className="stepper">
-                <NavPt currentPage="page1" onClick={this.changePage}/>
-                <NavPt currentPage="page2" onClick={this.changePage}/>
-                <NavPt currentPage="home" onClick={this.changePage}/>
-            </div>
-        )
-    }
+    const SelectedPage = PAGES[this.props.selectedPage]
+    return (
+        <React.Fragment>
+            <SelectedPage />
+        </React.Fragment>
+    )
 }
+Anyhow, it isn't working on my end for some reason.. maybe because I am using an OSS versi
+on of VSCODE or because I am on linux
+
+Let me restart once just to see
+*/
+
+
 
 class Display extends React.Component {
-   
-    render() {
-        const page = this.props.currentPage;
-        let display;
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentPage: "home"
+    };
+  }
 
-        if ( page === "home" ) {
-            display = <Home/>
-        } else if( page === "page1") {
-            display = <Page1/>
-        } else if( page === "page2" ) {
-            display = <Page2/>
-        }
+  render() {
+    const page = this.state.currentPage;
+    let display;
 
-        return(
-            <div className="app-display">
-                {display}
-                <Stepper/>
-            </div>
-        )
+    if (page === "home") {
+      display = <Home />;
+    } else if (page === "page1") {
+      display = <Page1 />;
+    } else if (page === "page2") {
+      display = <Page2 />;
     }
+
+    return (
+      <div className="app-display">
+        {display}
+        {display}
+      </div>
+    );
+  }
 }
 
 export default Display;
