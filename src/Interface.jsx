@@ -31,8 +31,8 @@ class Interface extends React.Component {
       // console.log(typeof Display)
     return (
       <div className="app-interface">
-        <Stepper eHandler={this.changePage} pages={PAGES} />
         <Display />
+        <Stepper eHandler={this.changePage} pages={PAGES} />
       </div>
     );
   }

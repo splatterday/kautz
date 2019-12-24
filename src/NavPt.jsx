@@ -1,9 +1,9 @@
 import React from 'react';
 
 class NavPt extends React.Component {
-    handleClick = () => {
-      const { path, onClick } = this.props;
-    };
+    // handleClick = () => {
+    //   const { path, onClick } = this.props;
+    // };
     render() {
       // if(this.state.active) {
       //     {active}

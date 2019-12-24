@@ -1,10 +1,56 @@
+$color-blue: #174359;
+$color-grey: #E6E6E6;
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,400,500,600,700');
+$font-primary: 'Open Sans Condensed';
+$font-secondary: 'Open Sans';
+h1 {
+    font-family: $font-primary;
+    font-weight: 500;
+    font-size: 2.4em;
+}
+
+h2 {
+    font-family: $font-secondary;
+    font-weight: 700;
+    font-size: 1.4em;
+    color: #4d7317;
+}
+
+.display {
+    height: 90vh;
+}
+
 .stepper {
-    background-color: yellow;
+    background-color: $color-blue;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    height: 2em;
+    button {
+        height: 1em;
+        margin: auto;
+        width: 1em;
+        border: none;
+        border-radius: 0.5em;
+        background-color: $color-grey;
+        .active {
+            background-color: blue;
+        }
+    }
 }
 
-.app-display {
-    height: 80vh;
+.app {
+    &-interface {
+        font-family: $font-primary;
+    }
+    &-display {
+        height: 80vh;
+    }
+}
+
+.navpt {
+    height: 2em;
+    width: 3em;
+    background-color: pink;
 }
