@@ -9,7 +9,7 @@ class Display extends React.Component {
 
     return (
         <div className="display">
-            <SelectedPage/>
+            <SelectedPage eventHandler={this.changePage} currentPage={this.props.currentPage}/>
         </div>
     )
   }
