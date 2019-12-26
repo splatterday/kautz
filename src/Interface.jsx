@@ -22,7 +22,7 @@ class Interface extends React.Component {
   render() {
     return (
       <div className="app-interface">
-        <Display currentPage={this.state.currentPage}/>
+        <Display eventHandler={this.changePage} currentPage={this.state.currentPage}/>
         <Stepper eventHandler={this.changePage} pages={PAGES} currentPage={this.state.currentPage}/>
       </div>
     );

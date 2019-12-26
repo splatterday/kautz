@@ -2,7 +2,7 @@ import React from 'react';
 // import NavPt from './NavPt';
 
 const Stepper = ({eventHandler, pages, currentPage}) => {
-    console.log(currentPage);
+    // console.log(eventHandler);
     return (
       /* Then here we can just map out the keys of the PAGES array to individual NavPt components like so:
       {Object.keys(pages).map(n => <NavPtr key={n} currentPage={n} onClick={changePage} />)}
