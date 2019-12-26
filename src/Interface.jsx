@@ -8,7 +8,7 @@ class Interface extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentPage: "0"
+      currentPage: 0
     };
     this.changePage = this.changePage.bind(this)
   }

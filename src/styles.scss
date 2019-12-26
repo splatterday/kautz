@@ -33,11 +33,10 @@ p {
 }
 
 .display {
-    height: 90vh;
-    @media screen and (max-width: 600px) {
-        height: auto;
-        overflow-y: scroll;
-    }
+    min-height: 90vh;
+    height: auto;
+    overflow-y: scroll;
+    @media screen and (max-width: 600px) {}
     &-left {
         width: 40%;
         padding: 1.8em;
@@ -76,10 +75,8 @@ p {
     justify-content: space-around;
     height: 2em;
     width: 100%;
-    @media screen and (max-width: 600px) {
-        position: fixed;
-        bottom: 0;
-    }
+    position: fixed;
+    bottom: 0;
     button {
         height: 1em;
         margin: auto;
