@@ -1,9 +1,10 @@
 import React from 'react';
 
-export default function Page4() {
+export default function Page4({prvPage}) {
     return(
-        <div>
-        <h1>Page 4</h1>
-        </div>
+        <React.Fragment>
+                <h1>Page 4</h1>
+                <button onClick={prvPage}>Previous Chapter</button>
+        </React.Fragment>
     );
 }

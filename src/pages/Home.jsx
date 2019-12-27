@@ -1,6 +1,5 @@
 import React from 'react';
-import BtnNext from '../components/BtnNext.jsx';
-import { Component } from 'react';
+
 
 // class Home extends Component {
 //     render() {
@@ -20,7 +19,7 @@ import { Component } from 'react';
 //     }
 // }
 
-function Home({eventHandler, currentPage}) {
+function Home({nxtPage, currentPage}) {
     // console.log(currentPage);
     return (
         <div className="headsup home">
@@ -29,7 +28,7 @@ function Home({eventHandler, currentPage}) {
                 <h2>Welcome to the app!</h2>
                 <p>Here you will learn all kinds of shit...</p>
                 {/* <button onClick={eventHandler} value={(currentPage++)}>Let's get Started!</button> */}
-                <BtnNext eventHandler={eventHandler} currentPage={currentPage}/>
+                <button onClick={nxtPage}>Next Chapter</button>
             </div>
             <div className="display-right">
             </div>

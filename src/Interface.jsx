@@ -1,31 +1,51 @@
-import React from "react";
-import Display from "./Display";
+import React, { useState, useReducer } from "react";
 import Stepper from "./Stepper";
-import PAGES from './pages'
+import Display from "./Display"
 
-
-class Interface extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      currentPage: 0
-    };
-    this.changePage = this.changePage.bind(this)
-  }
-
-
-  changePage(event) {
-      console.log(event.target.value);
-      this.setState({ currentPage: event.target.value });
-  }
-
-  render() {
-    return (
-      <div className="app-interface">
-        <Display eventHandler={this.changePage} currentPage={this.state.currentPage}/>
-        <Stepper eventHandler={this.changePage} pages={PAGES} currentPage={this.state.currentPage}/>
-      </div>
-    );
+function reducer(state, action) {
+  switch (action.type) {
+    case 'increment':
+        return {
+          ...state,
+          page: state.page + 1
+       }
+    case 'decrement':
+        return {
+          ...state,
+          page: state.page - 1
+        }
+    case 'ref':
+      return {
+        ...state,
+        page: state.page
+      }
+    default:
+        throw new Error()
   }
 }
+
+function Interface(props) {
+  // const [currentPage, setCurrentPage] = useState(0)
+  const [state, dispatch] = useReducer(reducer, {page: 0})
+
+  const nextPage = () => {
+    dispatch({type: 'increment', page: state.page})
+  }
+
+  const prevPage = () => {
+    dispatch({type: 'decrement', page: state.page})
+  }
+
+  const changePage = (event) => {
+    dispatch({type: 'ref', page: event.target.value})
+  }
+
+  return (
+    <div className="app-interface">
+        <Display nxtPage={nextPage} prvPage={prevPage} currentPage={state.page}/>
+        <Stepper eventHandler={changePage} currentPage={state.page} />
+    </div>
+  )
+}
+
 export default Interface;

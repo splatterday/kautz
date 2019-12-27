@@ -1,18 +1,13 @@
 import React from "react";
-import Home from "./pages/Home";
 import PAGES from './pages';
 
-class Display extends React.Component {
-
-  render() {
-    const SelectedPage = PAGES[this.props.currentPage]
-    console.log(this.props.eventHandler);
+function Display({currentPage, nxtPage, prvPage}) {
+    const SelectedPage = PAGES[currentPage]
     return (
         <div className="display">
-            <SelectedPage eventHandler={this.props.eventHandler} currentPage={this.props.currentPage}/>
+            <SelectedPage nxtPage={nxtPage} prvPage={prvPage} />
         </div>
     )
-  }
 }
 
 export default Display;

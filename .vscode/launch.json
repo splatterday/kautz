@@ -5,13 +5,17 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "node",
+            "type": "firefox",
+            "request": "attach",
+            "name": "Attach"
+        },
+        {
+            "type": "firefox",
             "request": "launch",
-            "name": "Launch Program",
-            "skipFiles": [
-                "<node_internals>/**"
-            ],
-            "program": "${workspaceFolder}/src/Interface.jsx"
-        }
+            "reAttach": true,
+            "name": "Launch localhost",
+            "url": "http://localhost:3000/",
+            "webRoot": "${workspaceFolder}/src"
+        },
     ]
 }
